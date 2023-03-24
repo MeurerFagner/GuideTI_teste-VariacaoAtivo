@@ -11,5 +11,6 @@
         public float? Close { get; set; }
         public int? Volume { get; set; }
         public DateTime DataCadastro { get; set;}
+        public Ativo Ativo { get; set; }
     }
 }
