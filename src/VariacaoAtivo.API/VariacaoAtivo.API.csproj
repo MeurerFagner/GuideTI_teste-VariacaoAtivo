@@ -16,10 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\VariacaoAtivo.APP\VariacaoAtivo.APP.csproj" />
     <ProjectReference Include="..\VariacaoAtivo.Dominio\VariacaoAtivo.Dominio.csproj" />
     <ProjectReference Include="..\VariacaoAtivo.Infra\VariacaoAtivo.Infra.csproj" />
   </ItemGroup>

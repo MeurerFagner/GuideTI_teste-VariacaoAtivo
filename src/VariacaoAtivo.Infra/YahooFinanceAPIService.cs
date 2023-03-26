@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using VariacaoAtivo.Dominio.DTO;
-using VariacaoAtivo.Dominio.Interfaces;
+using VariacaoAtivo.Dominio.Interfaces.Infra;
 
 namespace VariacaoAtivo.Infra
 {
@@ -18,7 +18,8 @@ namespace VariacaoAtivo.Infra
         {
             using var httpClient = new HttpClient();
 
-            var httpResponse = await httpClient.GetAsync(CONSULTA_ATIVO_URL + ativo.ToUpper());
+            //BUSCA OS PREGÕES DOS ULTIMOS 40 DIAS, COM A INFORMAÇÕA DIVIDIDA EM DIAS
+            var httpResponse = await httpClient.GetAsync(CONSULTA_ATIVO_URL + ativo.ToUpper() + "?interval=1d&range=40d");
 
             if (httpResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
                 return null;

@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VariacaoAtivo.Dominio.Interfaces;
-using VariacaoAtivo.Infra;
-
-namespace VariacaoAtivo.Dominio.Teste
+namespace VariacaoAtivo.Infra.Teste
 {
     public class YahooFinanceAPIServiceTest
     {

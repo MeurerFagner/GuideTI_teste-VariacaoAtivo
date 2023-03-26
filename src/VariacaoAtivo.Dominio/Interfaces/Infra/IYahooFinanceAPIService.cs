@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VariacaoAtivo.Dominio.DTO;
 
-namespace VariacaoAtivo.Dominio.Interfaces
+namespace VariacaoAtivo.Dominio.Interfaces.Infra
 {
     public interface IYahooFinanceAPIService
     {
