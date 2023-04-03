@@ -13,6 +13,7 @@ namespace VariacaoAtivo.Infra.MapEntidades
     {
         public void Configure(EntityTypeBuilder<Ativo> builder)
         {
+            builder.ToTable("Ativo", "WEB_API");
             builder.HasKey(k => k.Id);
             builder.Property(p => p.Id).ValueGeneratedOnAdd();
 

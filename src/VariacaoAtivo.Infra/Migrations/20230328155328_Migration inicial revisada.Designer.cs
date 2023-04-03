@@ -12,8 +12,8 @@ using VariacaoAtivo.Infra;
 namespace VariacaoAtivo.Infra.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230324214406_Inicial")]
-    partial class Inicial
+    [Migration("20230328155328_Migration inicial revisada")]
+    partial class Migrationinicialrevisada
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,7 +49,7 @@ namespace VariacaoAtivo.Infra.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Ativos");
+                    b.ToTable("Ativo", "WEB_API");
                 });
 
             modelBuilder.Entity("VariacaoAtivo.Dominio.Entidade.Pregao", b =>
@@ -81,14 +81,14 @@ namespace VariacaoAtivo.Infra.Migrations
                     b.Property<float?>("Open")
                         .HasColumnType("real");
 
-                    b.Property<int?>("Volume")
-                        .HasColumnType("int");
+                    b.Property<long?>("Volume")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
                     b.HasIndex("IdAtivo");
 
-                    b.ToTable("Pregoes");
+                    b.ToTable("Pregoes", "WEB_API");
                 });
 
             modelBuilder.Entity("VariacaoAtivo.Dominio.Entidade.Pregao", b =>

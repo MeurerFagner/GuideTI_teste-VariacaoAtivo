@@ -4,7 +4,7 @@ using VariacaoAtivo.Dominio.Interfaces.APP;
 
 namespace VariacaoAtivo.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/pregao")]
     [ApiController]
     public class PregaoController : ControllerBase
     {
@@ -29,7 +29,14 @@ namespace VariacaoAtivo.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(new
+                {
+                    error = ex.GetType().Name,
+                    message = ex.Message,
+                    stackTrace = ex.StackTrace,
+                    inerrException = ex.InnerException == null? null : ex.InnerException.Message
+
+                });
             }
         }
     }

@@ -46,7 +46,7 @@ namespace VariacaoAtivo.Infra.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Ativos");
+                    b.ToTable("Ativo", "WEB_API");
                 });
 
             modelBuilder.Entity("VariacaoAtivo.Dominio.Entidade.Pregao", b =>
@@ -85,7 +85,7 @@ namespace VariacaoAtivo.Infra.Migrations
 
                     b.HasIndex("IdAtivo");
 
-                    b.ToTable("Pregoes");
+                    b.ToTable("Pregoes", "WEB_API");
                 });
 
             modelBuilder.Entity("VariacaoAtivo.Dominio.Entidade.Pregao", b =>

@@ -8,6 +8,7 @@ namespace VariacaoAtivo.Infra.MapEntidades
     {
         public void Configure(EntityTypeBuilder<Pregao> builder)
         {
+            builder.ToTable("Pregoes", "WEB_API");
             builder.HasKey(k => k.Id);
             builder.Property(p => p.Id).ValueGeneratedOnAdd();
 
