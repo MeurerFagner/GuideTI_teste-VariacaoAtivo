@@ -1,0 +1,43 @@
+version: "3.4"
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - 1433:1433
+    volumes:
+      - type: volume
+        source: data
+        target: /var/opt/mssql
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-Usa", "-P$MSSQL_SA_PASSWORD", "-Q", "select 1"]
+      interval: 2s
+      retries: 20      
+
+  mssqltools:
+    image: mcr.microsoft.com/mssql-tools
+    env_file:
+      - .env
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    volumes:
+      - ./script_inicial.sql:/tmp/script_inicial.sql
+      - ./entrypoint.sh:/tmp/entrypoint.sh
+    command: /bin/bash ./tmp/entrypoint.sh
+
+  api:
+    image: meurerfagner/variacao-ativo
+    container_name: variacao_ativo_api
+    ports:
+      - 80:80
+    env_file:
+      - .env
+    depends_on:
+      mssqltools:
+        condition: service_completed_successfully
+
+volumes:
+  data:        
