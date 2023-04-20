@@ -40,7 +40,7 @@ namespace VariacaoAtivo.Dominio.Servicos
 
                 await _unitOfWork.Ativos.Insert(ativo);
 
-                await _unitOfWork.Commit();
+                //await _unitOfWork.Commit();
             }
 
             var pregoesTimetamp = resultadoConsulta.chart.result[0].timestamp;
@@ -59,7 +59,7 @@ namespace VariacaoAtivo.Dominio.Servicos
                 {
                     pregao = new Pregao
                     {
-                        IdAtivo = ativo.Id,
+                        Ativo = ativo,
                         DataCadastro = DateTime.Now,
                         DataPregao = dataPregao,
                         Open = pregoesQuote.open[i],

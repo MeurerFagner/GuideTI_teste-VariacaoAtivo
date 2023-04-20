@@ -1,0 +1,9 @@
+# #!/bin/bash
+# echo change password...
+
+echo executing script...
+
+/opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P $MSSQL_SA_PASSWORD -d master -i /tmp/script_inicial.sql
+
+echo finishing...
+
